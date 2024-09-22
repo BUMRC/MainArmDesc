@@ -1,0 +1,140 @@
+<?xml version="1.0" ?>
+<robot name="MainArm" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find MainArm_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find MainArm_description)/urdf/MainArm.trans" />
+<xacro:include filename="$(find MainArm_description)/urdf/MainArm.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="0.020032428894072907 -7.179561531716945e-07 0.019113331248796942" rpy="0 0 0"/>
+    <mass value="0.5841978486805243"/>
+    <inertia ixx="0.000222" iyy="0.000502" izz="0.000494" ixy="-0.0" iyz="-0.0" ixz="9.7e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find MainArm_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find MainArm_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="limb1_1">
+  <inertial>
+    <origin xyz="0.00015989824058784224 -1.2609120737107025e-14 0.03174053129781947" rpy="0 0 0"/>
+    <mass value="1.4219193904917444"/>
+    <inertia ixx="0.002464" iyy="0.001872" izz="0.002041" ixy="0.0" iyz="-0.0" ixz="9e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0 0.0 -0.04" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find MainArm_description)/meshes/limb1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0 0.0 -0.04" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find MainArm_description)/meshes/limb1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="limb2_1">
+  <inertial>
+    <origin xyz="0.005268085964147474 -0.02679578441266844 0.11271982368602562" rpy="0 0 0"/>
+    <mass value="1.9342900156418865"/>
+    <inertia ixx="0.013768" iyy="0.011873" izz="0.003037" ixy="1.6e-05" iyz="0.000315" ixz="-0.00048"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0 -0.030192 -0.107743" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find MainArm_description)/meshes/limb2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0 -0.030192 -0.107743" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find MainArm_description)/meshes/limb2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="limb3_1">
+  <inertial>
+    <origin xyz="-0.187923198901115 0.02633137890542301 0.008995139221324389" rpy="0 0 0"/>
+    <mass value="2.3539833828451076"/>
+    <inertia ixx="0.003789" iyy="0.029412" izz="0.03184" ixy="0.001081" iyz="-5.4e-05" ixz="0.001319"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.012527 0.0308 -0.363437" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find MainArm_description)/meshes/limb3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.012527 0.0308 -0.363437" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find MainArm_description)/meshes/limb3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="limb4_1">
+  <inertial>
+    <origin xyz="-0.18630461931927167 -0.004164533012362779 0.009506084033507167" rpy="0 0 0"/>
+    <mass value="2.9853885893807135"/>
+    <inertia ixx="0.005005" iyy="0.0288" izz="0.032371" ixy="-0.000214" iyz="1.1e-05" ixz="0.001441"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.353035 0.017744 -0.381346" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find MainArm_description)/meshes/limb4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.353035 0.017744 -0.381346" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find MainArm_description)/meshes/limb4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="limb1_to_bsae_link" type="continuous">
+  <origin xyz="0.0 0.0 0.04" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="limb1_1"/>
+  <axis xyz="-0.0 -0.0 1.0"/>
+</joint>
+
+<joint name="limb2_to_limb1" type="continuous">
+  <origin xyz="0.0 0.030192 0.067743" rpy="0 0 0"/>
+  <parent link="limb1_1"/>
+  <child link="limb2_1"/>
+  <axis xyz="0.0 -1.0 -0.0"/>
+</joint>
+
+<joint name="limb3_to_limb2" type="continuous">
+  <origin xyz="0.012527 -0.060992 0.255694" rpy="0 0 0"/>
+  <parent link="limb2_1"/>
+  <child link="limb3_1"/>
+  <axis xyz="-0.0 1.0 0.0"/>
+</joint>
+
+<joint name="limb4_to_limb3" type="continuous">
+  <origin xyz="-0.365562 0.013056 0.017909" rpy="0 0 0"/>
+  <parent link="limb3_1"/>
+  <child link="limb4_1"/>
+  <axis xyz="-0.0 1.0 0.0"/>
+</joint>
+
+</robot>

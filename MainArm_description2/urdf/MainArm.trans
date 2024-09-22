@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+<robot name="MainArm" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+<transmission name="limb1_to_bsae_link_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="limb1_to_bsae_link">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="limb1_to_bsae_link_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="limb2_to_limb1_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="limb2_to_limb1">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="limb2_to_limb1_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="limb3_to_limb2_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="limb3_to_limb2">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="limb3_to_limb2_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="limb4_to_limb3_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="limb4_to_limb3">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="limb4_to_limb3_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+</robot>
